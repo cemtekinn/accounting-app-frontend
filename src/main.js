@@ -1,11 +1,7 @@
 import './bootstrap'
 import { createApp } from 'vue'
 
-import './assets/main.css'
 import { mask } from 'vue-the-mask'
-
-import '@/styles/app.scss'
-import 'bootstrap/dist/js/bootstrap.bundle'
 
 import App from './App.vue'
 import router from './router'
