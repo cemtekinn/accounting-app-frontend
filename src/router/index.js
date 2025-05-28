@@ -7,4 +7,4 @@ const router = createRouter({
   mode: 'history',
 })
 
-export default router;
+export default router
