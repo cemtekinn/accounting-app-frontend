@@ -7,4 +7,8 @@ const router = createRouter({
   mode: 'history',
 })
 
+router.beforeEach(async (to, from, next) => {
+  await next();
+})
+
 export default router
