@@ -52,7 +52,6 @@ const selectCategory = (category) => {
   <div class="col-md-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h5 class="fw-bold">Hızlı Ürünler</h5>
-
       <button
         class="btn btn-outline-dark d-flex align-items-center gap-2 dashed-border"
         type="button"
@@ -64,17 +63,73 @@ const selectCategory = (category) => {
 
         Kategoriler
       </button>
-
     </div>
 
-    <div class="row g-3">
-      <div class="col-6 col-sm-4 col-md-4" v-for="product in filteredProducts" :key="product.id">
-        <button class="btn btn-outline-primary w-100 py-3" @click="addToCart(product)">
-          {{ product.name }}<br />
-          <small>₺{{ product.price }}</small>
-        </button>
+    <div class="product-row">
+
+      <div class="product-card">
+        <div class="product-card__image">
+          <img
+            src="https://static.ticimax.cloud/cdn-cgi/image/width=565,quality=85/48857/uploads/urunresimleri/buyuk/1003838-cca939.jpg"
+            alt="Product 1"
+          />
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__info__title">Erikli Su</div>
+          <div class="product-card__info__price">15 TL</div>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <div class="product-card__image">
+          <img
+            src="https://static.ticimax.cloud/cdn-cgi/image/width=565,quality=85/48857/uploads/urunresimleri/buyuk/1003838-cca939.jpg"
+            alt="Product 1"
+          />
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__info__title">Erikli Su</div>
+          <div class="product-card__info__price">15 TL</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card__image">
+          <img
+            src="https://static.ticimax.cloud/cdn-cgi/image/width=565,quality=85/48857/uploads/urunresimleri/buyuk/1003838-cca939.jpg"
+            alt="Product 1"
+          />
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__info__title">Erikli Su</div>
+          <div class="product-card__info__price">15 TL</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card__image">
+          <img
+            src="https://static.ticimax.cloud/cdn-cgi/image/width=565,quality=85/48857/uploads/urunresimleri/buyuk/1003838-cca939.jpg"
+            alt="Product 1"
+          />
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__info__title">Erikli Su</div>
+          <div class="product-card__info__price">15 TL</div>
+        </div>
       </div>
     </div>
+
+    <!--      <div class="col-6 col-sm-4 col-md-4" v-for="product in filteredProducts" :key="product.id">-->
+    <!--        <button-->
+    <!--          class="btn btn-outline-primary w-100 py-3 text-center dashed-border"-->
+    <!--          @click="addToCart(product)"-->
+    <!--        >-->
+    <!--          {{ product.name }}<br />-->
+    <!--          <small>₺{{ product.price }}</small>-->
+    <!--        </button>-->
+    <!--      </div>-->
 
     <div
       class="offcanvas offcanvas-end custom-offcanvas"
@@ -109,6 +164,70 @@ const selectCategory = (category) => {
 </template>
 
 <style scoped lang="scss">
+
+.product-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.product-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  width: 140px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgb(13 110 253 / 0.15);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  user-select: none;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgb(13 110 253 / 0.4);
+    border-color: #0a58ca;
+  }
+
+  &__image {
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow: hidden;
+    display: block;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__info {
+    padding: 0.5rem 1rem 1rem;
+    text-align: center;
+
+    &-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0d6efd;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+
+    &-price {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #198754;
+    }
+  }
+}
+
 .dashed-border {
   border-style: dashed !important;
 }

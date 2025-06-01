@@ -90,8 +90,7 @@ const completeSale = () => {
           </div>
         </div>
 
-        <!-- Ürün kısayolları -->
-      <ProductShortcuts />
+        <ProductShortcuts />
       </div>
 
       <!-- ALT PANEL - Toplam ve Satışı Tamamla -->
