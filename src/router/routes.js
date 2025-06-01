@@ -4,6 +4,12 @@ export default [
     name: 'home',
     component: () => import('../views/Home.vue'),
   },
+  // Test page
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/Temp/Test.vue'),
+  },
   {
     path: '/quick-sale',
     name: 'quick-sale',

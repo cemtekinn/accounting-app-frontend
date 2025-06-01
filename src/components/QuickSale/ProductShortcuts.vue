@@ -10,13 +10,33 @@ const products = ref([
   { id: 6, name: 'Kahve', price: 20, category: 'İçecekler' },
 ])
 
-const categories = ref(['Tümü', 'İçecekler', 'Atıştırmalıklar', 'Yemekler', 'Tatlılar'])
+const categories = ref([
+  'Tümü',
+  'İçecekler',
+  'Atıştırmalıklar',
+  'Yemekler',
+  'Tatlılar',
+  'Kahvaltılıklar',
+  'Salatalar',
+  'Çorbalar',
+  'Sandviçler',
+  'Süt Ürünleri',
+  'Unlu Mamuller',
+  'Dondurmalar',
+  'Meyveler',
+  'Sebzeler',
+  'Kuruyemişler',
+  'Sağlıklı Atıştırmalıklar',
+  'Hazır Yemekler',
+  'Enerji İçecekleri',
+])
+
 const selectedCategory = ref('Tümü')
 
 const filteredProducts = computed(() =>
   selectedCategory.value === 'Tümü'
     ? products.value
-    : products.value.filter(p => p.category === selectedCategory.value)
+    : products.value.filter((p) => p.category === selectedCategory.value),
 )
 
 const addToCart = (product) => {
@@ -30,26 +50,25 @@ const selectCategory = (category) => {
 
 <template>
   <div class="col-md-5">
-    <!-- Başlık ve Kategori Açma Butonu -->
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h5 class="fw-bold">Hızlı Ürünler</h5>
+
       <button
-        class="btn btn-sm btn-outline-secondary"
+        class="btn btn-outline-dark d-flex align-items-center gap-2 dashed-border"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasCategories"
         aria-controls="offcanvasCategories"
       >
+        <i class="fa-solid fa-bars"></i>
+
         Kategoriler
       </button>
+
     </div>
 
     <div class="row g-3">
-      <div
-        class="col-6 col-sm-4 col-md-4"
-        v-for="product in filteredProducts"
-        :key="product.id"
-      >
+      <div class="col-6 col-sm-4 col-md-4" v-for="product in filteredProducts" :key="product.id">
         <button class="btn btn-outline-primary w-100 py-3" @click="addToCart(product)">
           {{ product.name }}<br />
           <small>₺{{ product.price }}</small>
@@ -90,6 +109,10 @@ const selectCategory = (category) => {
 </template>
 
 <style scoped lang="scss">
+.dashed-border {
+  border-style: dashed !important;
+}
+
 .custom-offcanvas {
   background-color: #f5f6fa;
   border-left: 1px solid #dee2e6;
@@ -102,7 +125,7 @@ const selectCategory = (category) => {
     .offcanvas-title {
       font-weight: 600;
       font-size: 1.25rem;
-      color: #2A3042;
+      color: #2a3042;
     }
   }
 
@@ -122,19 +145,19 @@ const selectCategory = (category) => {
         padding: 0.75rem 1rem;
         border-radius: 0.5rem;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        color: #2A3042;
+        color: #2a3042;
         font-weight: 500;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         user-select: none;
 
         &:hover {
-          background-color: #2A3042;
+          background-color: #2a3042;
           color: white;
         }
 
         &.active {
-          background-color: #2A3042;
+          background-color: #2a3042;
           color: white;
           font-weight: 600;
         }
