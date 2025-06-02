@@ -27,7 +27,22 @@ const inputs = [
     type: 'text',
     mask: '####-####-####',
   },
+  {
+    key: 'quantity',
+    label: 'Miktar',
+    placeholder: 'Stok miktarını girin',
+    type: 'number',
+    required: true,
+  },
+  {
+    key: 'description',
+    label: 'Açıklama',
+    placeholder: 'Ürün açıklaması',
+    type: 'text',
+    required: false,
+  },
 ]
+
 </script>
 
 <template>
