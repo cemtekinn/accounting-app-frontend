@@ -1,39 +1,38 @@
 <script setup>
+import { ref } from 'vue'
+import CreateEditModal from '@/components/Modals/CreateEditModal.vue'
 import Layout from '@/layouts/Main.vue'
 
-import Timeline from '@/components/Timeline.vue'
+const showNumpad = ref(false)
 
-const timelineItems = [
+const inputs = [
   {
-    date: '01 Ocak 2023',
-    title: 'Proje Başladı',
-    description: 'İlk fikir aşamasına geçildi ve ekip kuruldu.',
+    key: 'name',
+    label: 'Ürün Adı',
+    placeholder: 'Ürün adını girin',
+    type: 'text',
+    required: true,
   },
   {
-    date: '15 Şubat 2023',
-    title: 'Tasarım Tamamlandı',
-    description: 'UI/UX tasarımları hazırlandı ve onaylandı.',
+    key: 'price',
+    label: 'Fiyat',
+    placeholder: 'Fiyat girin',
+    type: 'number',
+    required: true,
   },
   {
-    date: '10 Nisan 2023',
-    title: 'Kodlama Başladı',
-    description: 'Frontend ve backend geliştiricileri işe başladı.',
-  },
-  {
-    date: '20 Temmuz 2023',
-    title: 'Beta Yayın',
-    description: 'Kısıtlı kullanıcıya açık beta yayına geçildi.',
-  },
-  {
-    date: '01 Eylül 2023',
-    title: 'Final Sürüm',
-    description: 'Ürün yayına alındı ve pazarlama başladı.',
+    key: 'barcode',
+    label: 'Barkod',
+    placeholder: 'Barkod numarası',
+    type: 'text',
+    mask: '####-####-####',
   },
 ]
 </script>
 
 <template>
   <Layout>
-    <Timeline title="Proje Süreci" :items="timelineItems" />
+    <button @click="showNumpad = true">Dinamik Modal</button>
   </Layout>
+  <CreateEditModal :is-open="showNumpad" @close="showNumpad = false" :inputs="inputs" />
 </template>

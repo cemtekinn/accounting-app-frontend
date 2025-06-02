@@ -29,6 +29,7 @@ export const useModalStore = defineStore('modal', () => {
 
   const defaultModalNames = [
     // Add modal names here
+    'numpad'
   ]
 
   const defaultModals = {}
