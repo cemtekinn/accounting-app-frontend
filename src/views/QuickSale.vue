@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Main.vue'
 import { ref, computed } from 'vue'
 import ProductShortcuts from '@/components/Quicksale/ProductShortcuts.vue'
+import CustomTable from '@/components/CustomTable.vue'
 
 const barcodeInput = ref('')
 const products = ref([
@@ -38,15 +39,99 @@ const completeSale = () => {
   alert('Satış tamamlandı.')
   cart.value = []
 }
+
+const tableConfig = {
+  name: 'Ürün',
+  quantity: 'Adet',
+  unit: 'Birim',
+  total: 'Toplam',
+  action: 'İşlem',
+}
+
+const data = [
+  {
+    name: 'Tükenmez Kalem',
+    quantity: 10,
+    unit: 'Adet',
+    total: 50,
+    action: 'Sil',
+  },
+  {
+    name: 'Spiral Defter',
+    quantity: 5,
+    unit: 'Adet',
+    total: 75,
+    action: 'Sil',
+  },
+  {
+    name: 'A4 Kağıt (500\'lü)',
+    quantity: 2,
+    unit: 'Kutu',
+    total: 120,
+    action: 'Sil',
+  },
+  {
+    name: 'Zımba Makinesi',
+    quantity: 1,
+    unit: 'Adet',
+    total: 45,
+    action: 'Sil',
+  },
+  {
+    name: 'Karton Klasör',
+    quantity: 4,
+    unit: 'Adet',
+    total: 60,
+    action: 'Sil',
+  },
+  {
+    name: 'Yapışkan Not Kağıdı',
+    quantity: 6,
+    unit: 'Adet',
+    total: 30,
+    action: 'Sil',
+  },
+  {
+    name: 'Silgi',
+    quantity: 8,
+    unit: 'Adet',
+    total: 16,
+    action: 'Sil',
+  },
+  {
+    name: 'Cetvel (30 cm)',
+    quantity: 3,
+    unit: 'Adet',
+    total: 15,
+    action: 'Sil',
+  },
+  {
+    name: 'Kurşun Kalem',
+    quantity: 12,
+    unit: 'Adet',
+    total: 36,
+    action: 'Sil',
+  },
+  {
+    name: 'Yapıştırıcı',
+    quantity: 2,
+    unit: 'Tüp',
+    total: 18,
+    action: 'Sil',
+  },
+];
+
+
 </script>
 
 <template>
   <Layout>
     <div class="container-fluid p-3">
       <div class="row" style="min-height: 80vh">
-        <!-- SOL PANEL -->
+
         <div class="col-md-7 border-end">
-          <!-- Barkod Girişi -->
+
+
           <div class="mb-3">
             <label class="form-label fw-bold">Barkod:</label>
             <input
@@ -58,36 +143,7 @@ const completeSale = () => {
             />
           </div>
 
-          <!-- DataTable -->
-          <div class="table-responsive mt-4">
-            <table class="table table-bordered align-middle text-center">
-              <thead class="table-light">
-                <tr>
-                  <th>Ürün</th>
-                  <th>Adet</th>
-                  <th>Birim</th>
-                  <th>Toplam</th>
-                  <th>Sil</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in cart" :key="item.id">
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.quantity }}</td>
-                  <td>₺{{ item.price }}</td>
-                  <td>₺{{ item.price * item.quantity }}</td>
-                  <td>
-                    <button class="btn btn-sm btn-danger" @click="removeFromCart(item.id)">
-                      ✖
-                    </button>
-                  </td>
-                </tr>
-                <tr v-if="cart.length === 0">
-                  <td colspan="5" class="text-muted">Sepet boş</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <CustomTable title="Sepetteki Ürünler" :config="tableConfig" :data="data" />
         </div>
 
         <ProductShortcuts />
