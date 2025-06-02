@@ -15,4 +15,9 @@ export default [
     name: 'quick-sale',
     component: () => import('../views/QuickSale.vue'),
   },
+  {
+    path: '/invoices',
+    name: 'invoices',
+    component: () => import('../views/Invoices.vue'),
+  },
 ]

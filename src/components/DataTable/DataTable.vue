@@ -1,11 +1,11 @@
 <script setup>
 
 import {onMounted, ref, watch} from "vue";
-import Navigation from "@dash/components/DataTable/Navigation.vue";
-import DropDownFilters from "@dash/components/DataTable/DropDownFilters.vue";
-import DropDownCols from "@dash/components/DataTable/DropDownCols.vue";
+import Navigation from "@/components/DataTable/Navigation.vue";
+import DropDownFilters from "@/components/DataTable/DropDownFilters.vue";
+import DropDownCols from "@/components/DataTable/DropDownCols.vue";
 import moment from "moment";
-import DataTableInput from "@dash/components/DataTable/DataTableInput.vue";
+import DataTableInput from "@/components/DataTable/DataTableInput.vue";
 
 const props = defineProps({
     url: {

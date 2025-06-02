@@ -8,7 +8,7 @@ export default [
   {
     path: '/quick-sale',
     name: 'Hızlı Satış',
-    icon: 'fa-bolt',
+    icon: 'fa-shopping-cart',
     uniq_id: 'quick-sale',
   },
   {
