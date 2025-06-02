@@ -1,7 +1,7 @@
 <script setup>
 import Layout from '@/layouts/Main.vue'
 import { ref, computed } from 'vue'
-import ProductShortcuts from '@/components/QuickSale/ProductShortcuts.vue'
+import ProductShortcuts from '@/components/Quicksale/ProductShortcuts.vue'
 
 const barcodeInput = ref('')
 const products = ref([
