@@ -3,7 +3,6 @@ import Layout from '@/layouts/Main.vue'
 import DataTable from '@/components/DataTable/DataTable.vue'
 import PageHeader from '@/components/PageHeader.vue'
 
-
 const _edit = (data) => {
   // packageId.value = data.id;
   // ms.package_ce.open();

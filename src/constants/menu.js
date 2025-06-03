@@ -12,6 +12,18 @@ export default [
     uniq_id: 'quick-sale',
   },
   {
+    path: '/sales',
+    name: 'Satışlarım',
+    icon: 'fa fa-money-bill-wave',
+    uniq_id: 'sales',
+  },
+  {
+    path: '/bank-accounts',
+    name: 'Banka Hesaplarım',
+    icon: 'fa fa-university',
+    uniq_id: 'bank-accounts',
+  },
+  {
     path: '/invoices',
     name: 'Faturalarım',
     icon: 'fa-file-invoice',
